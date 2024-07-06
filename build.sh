@@ -8,6 +8,8 @@ REPO2_DIR="user_management"
 
 # Function to clone or pull a repository
 update_repo() {
+  local current_dir=$(pwd)
+  echo $current_dir
   local repo_url=$1
   local repo_dir=$2
 
@@ -22,7 +24,7 @@ update_repo() {
     git clone "$repo_url"
 
   fi
-  cd ../configuration
+  cd $current_dir
 }
 
 # Clone or pull repositories
@@ -32,4 +34,5 @@ update_repo "$REPO2_URL" "$REPO2_DIR"
 
 # Run docker-compose up
 echo "Running docker-compose up..."
+docker-compose build --parallel
 docker-compose up
