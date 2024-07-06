@@ -3,8 +3,8 @@
 # Define the repositories and their directories
 REPO1_URL="https://github.com/giorgiodishvili/order_management"
 REPO2_URL="https://github.com/giorgiodishvili/user_management"
-REPO1_DIR="order_management"
-REPO2_DIR="user_management"
+REPO1_DIR="../order_management"
+REPO2_DIR="../user_management"
 
 # Function to clone or pull a repository
 update_repo() {
@@ -13,9 +13,9 @@ update_repo() {
   local repo_url=$1
   local repo_dir=$2
 
-  if [ -d "../$repo_dir" ]; then
+  if [ -d "$repo_dir" ]; then
     echo "Directory $repo_dir exists. Pulling latest changes..."
-    cd "../$repo_dir"
+    cd "$repo_dir"
     git pull
 
   else
