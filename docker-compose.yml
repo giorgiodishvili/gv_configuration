@@ -108,7 +108,7 @@ services:
       DB_PASSWORD: mypassword
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-1:19092
       HAZELCAST_URL: hazelcast:5701
-      USERCONTROLLER_URL: user-service:8080
+      USER_SERVICE_URL: user-service:8080
     ports:
       - "8085:8085"
     depends_on:
