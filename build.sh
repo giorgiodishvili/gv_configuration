@@ -32,7 +32,10 @@ update_repo "$REPO1_URL" "$REPO1_DIR"
 echo "printing $(pwd) pwd "
 update_repo "$REPO2_URL" "$REPO2_DIR"
 
+# Run docker-compose build --parallel
+echo "Running docker-compose build --parallel..."
+docker-compose build --parallel
+
 # Run docker-compose up
 echo "Running docker-compose up..."
-docker-compose build --parallel
 docker-compose up

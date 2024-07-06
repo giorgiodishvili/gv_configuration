@@ -9,6 +9,7 @@ set REPO2_DIR=..\user_management
 
 REM Function to clone or pull a repository
 :UPDATE_REPO
+SET CURRENT_DIR=%cd%
 set REPO_URL=%1
 set REPO_DIR=%2
 
@@ -25,10 +26,16 @@ IF EXIST "%REPO_DIR%" (
 )
 goto :EOF
 
+pushd "%CURRENT_DIR%"
+
 REM Clone or pull repositories
 call :UPDATE_REPO %REPO1_URL% %REPO1_DIR%
 echo printing %cd% pwd
 call :UPDATE_REPO %REPO2_URL% %REPO2_DIR%
+
+REM Run docker-compose build --parallel
+echo "Running docker-compose build --parallel..."
+docker-compose build --parallel
 
 REM Run docker-compose up
 echo Running docker-compose up...
