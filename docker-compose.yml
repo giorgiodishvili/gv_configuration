@@ -79,11 +79,11 @@ services:
       - zookeeper
     networks:
       - my_network
-    healthcheck:
-      test: kafka-cluster.sh cluster-id --bootstrap-server localhost:9092 || exit 1
-      interval: 1s
-      timeout: 60s
-      retries: 60
+#    healthcheck:
+#      test: kafka-cluster.sh cluster-id --bootstrap-server localhost:9092 || exit 1
+#      interval: 1s
+#      timeout: 60s
+#      retries: 60
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
